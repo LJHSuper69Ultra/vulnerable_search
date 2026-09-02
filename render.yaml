@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: vulnerable-search-ctf
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: FLAG_2_RCE
+        value: "FLAG{c0mm4nd_1nj3ct10n_rce_m4st3r}"
