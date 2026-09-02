@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card" style="text-align: center; padding: 40px;">
+    <h2>Search Anything Across the Web & Database</h2>
+    <form action="/search" method="GET" style="margin-top: 20px;">
+        <input type="text" name="q" placeholder="Enter keyword or SQL injection payload..." required>
+        <button type="submit">Search</button>
+    </form>
+</div>
+{% endblock %}

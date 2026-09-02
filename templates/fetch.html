@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <h3>🌐 Live Site Search / SSRF Fetcher</h3>
+    <p>Fetch real-time contents from any external web URL:</p>
+    <form action="/fetch" method="GET">
+        <input type="text" name="url" placeholder="http://example.com or http://127.0.0.1:5000/history?id=999" value="{{ url }}" required style="width: 80%;">
+        <button type="submit">Fetch URL</button>
+    </form>
+    
+    {% if error %}
+        <p style="color: #f85149; margin-top: 15px;">Error: {{ error }}</p>
+    {% endif %}
+
+    {% if content %}
+        <h4 style="margin-top: 20px;">Fetched Response (First 2000 Chars):</h4>
+        <pre>{{ content }}</pre>
+    {% endif %}
+</div>
+{% endblock %}

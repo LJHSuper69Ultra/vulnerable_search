@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <h3>💡 Suggest a New Site to Index (Stored XSS)</h3>
+    <form action="/suggest" method="POST">
+        <input type="text" name="site_url" placeholder="Site URL" required style="display:block; margin-bottom:10px;"><br>
+        <textarea name="comment" placeholder="Comment or description..." required style="display:block; margin-bottom:10px; height:80px;"></textarea>
+        <button type="submit">Submit Suggestion</button>
+    </form>
+</div>
+
+<div class="card">
+    <h3>Recent Community Suggestions</h3>
+    {% for item in suggestions %}
+        <div style="border-bottom: 1px solid #30363d; padding: 10px 0;">
+            <!-- Stored XSS: unsanitized rendering -->
+            <p><strong>URL:</strong> {{ item[0] | safe }}</p>
+            <p><strong>Comment:</strong> {{ item[1] | safe }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

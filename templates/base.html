@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OmniSearch CTF Engine</title>
+    <style>
+        body { font-family: 'Courier New', monospace; background-color: #0d1117; color: #c9d1d9; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { border-bottom: 2px solid #238636; padding-bottom: 10px; margin-bottom: 20px; }
+        h1 { color: #58a6ff; margin: 0; }
+        nav a { color: #8b949e; margin-right: 15px; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: #58a6ff; }
+        input[type="text"], textarea { width: 70%; padding: 10px; background: #161b22; border: 1px solid #30363d; color: #fff; border-radius: 4px; }
+        button { padding: 10px 20px; background: #238636; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #2ea043; }
+        .card { background: #161b22; border: 1px solid #30363d; padding: 15px; margin-bottom: 15px; border-radius: 6px; }
+        pre { background: #000; padding: 10px; border-radius: 4px; color: #39ff14; overflow-x: auto; }
+        a { color: #58a6ff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 OmniSearch Engine (CTF Vulnerable Edition)</h1>
+            <nav style="margin-top: 10px;">
+                <a href="/">[Home]</a>
+                <a href="/fetch">[Live Site Search (SSRF)]</a>
+                <a href="/tools/ping">[Network Tool (RCE)]</a>
+                <a href="/history?id=1">[Search History (IDOR)]</a>
+                <a href="/suggest">[Suggest Site (XSS)]</a>
+            </nav>
+        </header>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

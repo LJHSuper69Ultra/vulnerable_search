@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <h3>📜 User Search History Log</h3>
+    <p>Viewing Log Entry ID: <strong>{{ log_id }}</strong></p>
+    <hr style="border-color: #30363d;">
+    <p><strong>User:</strong> {{ log.user }}</p>
+    <p><strong>Query:</strong> {{ log.query }}</p>
+    <p><strong>Timestamp:</strong> {{ log.time }}</p>
+</div>
+{% endblock %}

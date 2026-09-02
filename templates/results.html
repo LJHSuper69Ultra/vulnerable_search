@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <!-- Reflected XSS Vulnerability: using | safe filter -->
+    <h3>Search Results for: {{ query | safe }}</h3>
+    <hr style="border-color: #30363d;">
+    
+    {% if results %}
+        {% for r in results %}
+            <div style="margin-bottom: 15px;">
+                <h4 style="margin: 0;"><a href="{{ r[1] }}">{{ r[0] }}</a></h4>
+                <p style="color: #8b949e; margin: 5px 0;">{{ r[2] }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</div>
+{% endblock %}

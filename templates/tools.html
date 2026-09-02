@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <h3>⚡ Server Diagnostic Ping Tool (Command Injection)</h3>
+    <form action="/tools/ping" method="GET">
+        <input type="text" name="host" placeholder="127.0.0.1; env or 127.0.0.1 | cat /etc/passwd" value="{{ host }}" required>
+        <button type="submit">Ping Host</button>
+    </form>
+    
+    {% if output %}
+        <h4 style="margin-top: 20px;">Command Output:</h4>
+        <pre>{{ output }}</pre>
+    {% endif %}
+</div>
+{% endblock %}
